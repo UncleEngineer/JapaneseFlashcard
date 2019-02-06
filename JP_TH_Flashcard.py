@@ -98,6 +98,7 @@ def Addvocab_jp():
 		desc_th.set('')
 		img_path.set('')
 		EVocab.focus()
+		img_path.set('vocab\\default.png')
 
 	except Exception as e:
 		print(e)
@@ -239,7 +240,10 @@ def Translate(event=None):
 			messagebox.showinfo('Correct',rand_msg)
 			ans.set('')
 		else:
-			messagebox.showerror('Wrong!','ไปเรียนภาษาญี่ปุ่นกับลุงป้อมมาหรอ 555\nลุงป้อมสอนได้เฉพาะเทคนิคการซื้อนาฬิกา')
+			wrong_list = ['ไปเรียนภาษาญี่ปุ่นกับลุงป้อมมาหรอ 555\nลุงป้อมสอนได้เฉพาะเทคนิคการซื้อนาฬิกา',
+						  'ตั้งใจฝึกหน่อย เดี๋ยวจับไปปรับทัศนคติซะเลย...ปัดโถ่!']
+			wrong_word = random.choice(wrong_list)
+			messagebox.showerror('Wrong!',wrong_word)
 	except:
 		messagebox.showinfo('Please Click Next','กดปุ่ม Next ได้เลย')
 
@@ -281,6 +285,7 @@ ans = StringVar()
 LAns = ttk.Label(TLearn,font=('TH Sarabun New',20),text='Ans: ')
 LAns.place(x=20,y=300)
 
+# Input Text
 EAns = ttk.Entry(TLearn,font=('TH Sarabun New',20),textvariable=ans)
 EAns.place(x=60,y=300)
 
