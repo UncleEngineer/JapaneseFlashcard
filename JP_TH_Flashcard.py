@@ -98,12 +98,13 @@ def Addvocab_jp():
 		desc_th.set('')
 		img_path.set('')
 		EVocab.focus()
-		img_path.set('vocab\\default.png')
+		
 
 	except Exception as e:
 		print(e)
 		messagebox.showerror('ERROR','มีปัญหาเรื่องการกรอกข้อมูล')
 
+	img_path.set('vocab\\default.png')
 	update_data()
 
 def vocabfocus(event=None):
@@ -319,40 +320,40 @@ FAddvocab = Frame(TAdd)
 FAddvocab.place(x=50,y=20)
 
 LVocab = ttk.Label(FAddvocab,text='Vocab Japanese',font=('Angsana New',15))
-LVocab.grid(row=0,column=0)
+LVocab.grid(row=0,column=0,sticky='w')
 
 vocab_jp = StringVar()
 
 EVocab = ttk.Entry(FAddvocab,textvariable=vocab_jp,font=('Angsana New',15))
-EVocab.grid(row=0,column=1,padx=10,pady=10)
+EVocab.grid(row=0,column=1,padx=10,pady=10,sticky='w')
 
 
 LVocab_th = ttk.Label(FAddvocab,text='Translate',font=('Angsana New',15))
-LVocab_th.grid(row=1,column=0)
+LVocab_th.grid(row=1,column=0,sticky='w')
 
 vocab_th = StringVar()
 
 EVocab_th = ttk.Entry(FAddvocab,textvariable=vocab_th,font=('Angsana New',15))
-EVocab_th.grid(row=1,column=1,padx=10,pady=10)
+EVocab_th.grid(row=1,column=1,padx=10,pady=10,sticky='w')
 
 
 LDesc = ttk.Label(FAddvocab,text='Description',font=('Angsana New',15))
-LDesc.grid(row=2,column=0)
+LDesc.grid(row=2,column=0,sticky='w')
 
 desc_th = StringVar()
 
 EDesc = ttk.Entry(FAddvocab,textvariable=desc_th,font=('Angsana New',15))
-EDesc.grid(row=2,column=1,padx=10,pady=10)
+EDesc.grid(row=2,column=1,padx=10,pady=10,sticky='w')
 
 
 LImg = ttk.Label(FAddvocab,text='Image',font=('Angsana New',15))
-LImg.grid(row=3,column=0)
+LImg.grid(row=3,column=0,sticky='w')
 
 img_path = StringVar()
 img_path.set('vocab\\default.png')
 
 LImg_path = ttk.Label(FAddvocab,textvariable=img_path,font=('Angsana New',15))
-LImg_path.grid(row=3,column=1,padx=10,pady=5)
+LImg_path.grid(row=3,column=1,padx=10,pady=5,sticky='w')
 
 def Browse():
 	ipth = filedialog.askopenfilename()
@@ -361,7 +362,7 @@ def Browse():
 	img_path.set(ipth)
 
 BBrowse = ttk.Button(FAddvocab, text='Browse Vocab Image',command=Browse)
-BBrowse.grid(row=4,column=1)
+BBrowse.grid(row=4,column=1,sticky='w')
 
 FB = Frame(TAdd)
 FB.place(x=150,y=260)
