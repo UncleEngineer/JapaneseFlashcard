@@ -186,12 +186,12 @@ def NextVocab():
 		all_vc = view_data()
 		vc = random.choice(all_vc)
 		global pvc
-		pvc = vc
+		
 		while vc == pvc:
 			vc = random.choice(all_vc)
 			
 		
-		
+		pvc = vc
 
 		img = pvc[4]
 		image = Image.open(img)
