@@ -16,12 +16,268 @@ from PIL import ImageTk
 
 import csv
 
+from googletrans import Translator
+import webbrowser
+import pyperclip
 
+def Trans0(event=None):
+    #print('We are Ready to Trans')
+    Lam = Translator()
+    txt = texttrans.get() # .get() คือ ดึงค่าในตัวแปรนั้นออกมา
+    mytext = Lam.translate(txt,dest='en')
+    print(mytext.text)
+
+    textset = ''
+    xx = 0
+    for i in mytext.text:
+        if xx < 50:
+            textset += i
+            xx += 1
+        else:
+            textset += '\n' + i
+            xx = 0
+
+    meaning.set(textset)
+    print('-----------')
+
+def Trans1(event=None):
+    #print('We are Ready to Trans')
+    Lam = Translator()
+    txt = texttrans.get() # .get() คือ ดึงค่าในตัวแปรนั้นออกมา
+    mytext = Lam.translate(txt,dest='th')
+    print(mytext.text)
+    textset = ''
+    xx = 0
+    for i in mytext.text:
+        if xx < 50:
+            textset += i
+            xx += 1
+        else:
+            textset += '\n' + i
+            xx = 0
+
+    meaning.set(textset)
+    print('-----------')
+
+
+
+def Trans2(event=None):
+    #print('We are Ready to Trans')
+    Lam = Translator()
+    txt = texttrans.get()
+    mytext = Lam.translate(txt,dest='zh-cn')
+    print(mytext.text)
+    print(mytext.pronunciation)
+    try:
+        textset = ''
+        xx = 0
+        for i in mytext.text:
+            if xx < 10:
+                textset += i
+                xx += 1
+            else:
+                textset += '\n' + i
+                xx = 0
+
+        xx = 0
+        textset += '\n'
+        for i in mytext.pronunciation:
+            if xx < 50:
+                textset += i
+                xx += 1
+            else:
+                textset += '\n' + i
+                xx = 0
+
+
+
+        meaning.set(textset)
+    except:
+        textset = ''
+        xx = 0
+        for i in mytext.text:
+            if xx < 20:
+                textset += i
+                xx += 1
+            else:
+                textset += '\n' + i
+                xx = 0
+        meaning.set(textset)
+
+    print('-----------')
+
+def Trans3(event=None):
+    #print('We are Ready to Trans')
+    Lam = Translator()
+    txt = texttrans.get()
+    mytext = Lam.translate(txt,dest='ja')
+    print(mytext.text)
+    print(mytext.pronunciation)
+    try:
+        textset = ''
+        xx = 0
+        for i in mytext.text:
+            if xx < 20:
+                textset += i
+                xx += 1
+            else:
+                textset += '\n' + i
+                xx = 0
+
+        xx = 0
+        textset += '\n'
+        for i in mytext.pronunciation:
+            if xx < 50:
+                textset += i
+                xx += 1
+            else:
+                textset += '\n' + i
+                xx = 0
+
+
+
+        meaning.set(textset)
+    except:
+        textset = ''
+        xx = 0
+        for i in mytext.text:
+            if xx < 20:
+                textset += i
+                xx += 1
+            else:
+                textset += '\n' + i
+                xx = 0
+        meaning.set(textset)
+
+def Trans4(event=None):
+    #print('We are Ready to Trans')
+    Lam = Translator()
+    txt = texttrans.get() # .get() คือ ดึงค่าในตัวแปรนั้นออกมา
+    mytext = Lam.translate(txt,dest='de')
+    print(mytext.text)
+
+    textset = ''
+    xx = 0
+    for i in mytext.text:
+        if xx < 50:
+            textset += i
+            xx += 1
+        else:
+            textset += '\n' + i
+            xx = 0
+
+    meaning.set(textset)
+    print('-----------')
+
+
+def openweb1(event=None):
+    txt = texttrans.get()
+    print(txt)
+
+    splittext = txt.split(' ')
+
+    print(splittext)
+
+    url = 'https://translate.google.co.th/?hl=th#view=home&op=translate&sl=auto&tl=en&text='
+    url2 = ''
+
+    for sp in splittext:
+        url2 = url2 + sp + '%20'
+        print(url2)
+
+    allurl = url + url2
+    webbrowser.open(allurl)
+
+def openweb2(event=None):
+    txt = texttrans.get()
+    print(txt)
+
+    splittext = txt.split(' ')
+
+    print(splittext)
+
+    url = 'https://translate.google.co.th/?hl=th#view=home&op=translate&sl=auto&tl=th&text='
+    url2 = ''
+
+    for sp in splittext:
+        url2 = url2 + sp + '%20'
+        print(url2)
+
+    allurl = url + url2
+    webbrowser.open(allurl)
+
+def openweb3(event=None):
+    txt = texttrans.get()
+    print(txt)
+
+    splittext = txt.split(' ')
+
+    print(splittext)
+
+    url = 'https://translate.google.co.th/?hl=th#view=home&op=translate&sl=auto&tl=zh-CN&text='
+    url2 = ''
+
+    for sp in splittext:
+        url2 = url2 + sp + '%20'
+        print(url2)
+
+    allurl = url + url2
+    webbrowser.open(allurl)
+
+def openweb4(event=None):
+    txt = texttrans.get()
+    print(txt)
+
+    splittext = txt.split(' ')
+
+    print(splittext)
+
+    url = 'https://translate.google.co.th/?hl=th#view=home&op=translate&sl=auto&tl=ja&text='
+    url2 = ''
+
+    for sp in splittext:
+        url2 = url2 + sp + '%20'
+        print(url2)
+
+    allurl = url + url2
+    webbrowser.open(allurl)
+
+def openweb5(event=None):
+    txt = texttrans.get()
+    print(txt)
+
+    splittext = txt.split(' ')
+
+    print(splittext)
+
+    url = 'https://translate.google.co.th/?hl=th#view=home&op=translate&sl=auto&tl=de&text='
+    url2 = ''
+
+    for sp in splittext:
+        url2 = url2 + sp + '%20'
+        print(url2)
+
+    allurl = url + url2
+    webbrowser.open(allurl)
+
+def EnterTrans(event=None):
+
+    if v_radio.get() == 'en':
+        Trans0()
+    elif v_radio.get() == 'th':
+        Trans1()
+    elif v_radio.get() == 'zh-CN':
+        Trans2()
+    elif v_radio.get() == 'de':
+        Trans4()
+    else :
+        Trans3()
+
+def copytoclipboard(event=None):
+    pyperclip.copy(meaning.get())
 
 conn = sqlite3.connect('vocab.db')
 c = conn.cursor()
-
-
 
 c.execute(""" CREATE TABLE IF NOT EXISTS japanese (
 
@@ -125,7 +381,9 @@ GUI.geometry('800x650+100+20')
 GUI.state('zoomed')
 GUI.iconbitmap('flashcard.ico')
 GUI.wm_iconbitmap('flashcard.ico')
-GUI.bind('<F1>',vocabfocus)
+GUI.bind('<F6>',vocabfocus)
+
+
 
 menubar = Menu(GUI)
 
@@ -157,6 +415,7 @@ tab = Notebook(GUI)
 AllVocab = Frame(tab)
 TAdd = Frame(tab)
 TLearn = Frame(tab)
+TTrans = Frame(tab)
 TSummary = Frame(tab)
 
 img_learning = PhotoImage(file='learning.png')
@@ -171,12 +430,92 @@ tab.add(AllVocab, text='All Vocab',image=img_vocab, compound='left')
 img_add = PhotoImage(file='add.png')
 tab.add(TAdd, text='Add',image=img_add, compound='left')
 
+img_trans = PhotoImage(file='translate.png')
+tab.add(TTrans, text='Translate',image=img_trans, compound='left')
+
 
 img_summary = PhotoImage(file='summary.png')
 tab.add(TSummary, text='Summary',image=img_summary, compound='left')
 tab.pack(fill=BOTH,expand=1)
 
 ###############################
+
+############################TRANSLATE########################
+
+GUI.bind('<F1>',openweb1)
+GUI.bind('<F2>',openweb2)
+GUI.bind('<F3>',openweb3)
+GUI.bind('<F4>',openweb4)
+GUI.bind('<F5>',openweb5)
+GUI.bind('<Return>',EnterTrans)
+GUI.bind('<Control-c>',copytoclipboard)
+
+
+def AddtoFlashcard():
+	tab.select(TAdd)
+	vocab_jp.set(texttrans.get())
+	vocab_th.set(meaning.get())
+
+E1 = ttk.Label(TTrans, text = 'กรุณาใส่คำที่ต้องการแปล',font=('Angsana New',20))
+E1.pack(pady=10)
+
+F0 = Frame(TTrans)
+F0.pack()
+
+v_radio = StringVar()
+
+RB1 = ttk.Radiobutton(F0,text='English',variable=v_radio,value='en')
+RB1.invoke()
+RB2 = ttk.Radiobutton(F0,text='Thai',variable=v_radio,value='th')
+RB3 = ttk.Radiobutton(F0,text='Chinese',variable=v_radio,value='zh-CN')
+RB4 = ttk.Radiobutton(F0,text='Japanese',variable=v_radio,value='ja')
+RB5 = ttk.Radiobutton(F0,text='German',variable=v_radio,value='de')
+
+RB1.grid(row=0,column=1)
+RB2.grid(row=0,column=2)
+RB3.grid(row=0,column=3)
+RB4.grid(row=0,column=4)
+RB5.grid(row=0,column=5)
+
+texttrans = StringVar() #เก็บสิ่งที่เราพิมพ์ไว้
+
+#FE1 = Frame(TTrans)
+#FE1.pack(ipadx=200,pady=10)
+
+E1 = ttk.Entry(F0, textvariable = texttrans,font=('Angsana New',20))
+E1.grid(row=2,column=0,ipadx=200,columnspan=5,padx=10)
+
+EB1 = ttk.Button(F0,text='Add to Flashcard',command=AddtoFlashcard)
+EB1.grid(ipadx=20,ipady=10,pady=10,row=2,column=5)
+
+
+F1 = Frame(TTrans)
+F1.pack()
+
+B1 = ttk.Button(F1,text='English',command=Trans0)
+B1.grid(ipadx=20,ipady=10,pady=10,row=0,column=0)
+
+B1 = ttk.Button(F1,text='Thai',command=Trans1)
+B1.grid(ipadx=20,ipady=10,pady=10,row=0,column=1)
+
+B2 = ttk.Button(F1,text='Chinese',command=Trans2)
+B2.grid(ipadx=20,ipady=10,pady=10,row=0,column=2)
+
+B3 = ttk.Button(F1,text='Japanese',command=Trans3)
+B3.grid(ipadx=20,ipady=10,pady=10,row=0,column=3)
+
+B4 = ttk.Button(F1,text='German',command=Trans4)
+B4.grid(ipadx=20,ipady=10,pady=10,row=0,column=4)
+
+meaning = StringVar()
+meaning.set('----------Result----------')
+
+Result = ttk.Label(TTrans,textvariable=meaning,font=('Angsana New',20))
+Result.pack()
+
+E1.focus()
+
+#################################################################
 
 global pvc
 pvc = None
@@ -476,5 +815,7 @@ try:
 except:
 	messagebox.showinfo('Add Vocab','กรุณาเพิ่มคำศัพท์เพื่อเริ่มต้นใช้งาน')
 #Askname()
+
+tab.select(TTrans)
 
 GUI.mainloop()
